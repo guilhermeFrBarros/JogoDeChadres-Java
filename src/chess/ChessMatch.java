@@ -33,6 +33,7 @@ public class ChessMatch {  // é a partida   chess match = jogo de xadres
 	private void initialSetup() {													// metodo que inicia a peça no game / configuração inicial
 		board.placePiece(new Rook(board, Color.WHITE), new Position(2,1));
 		board.placePiece(new King(board, Color.BLACK), new Position(0, 4));
+		board.placePiece(new King(board, Color.WHITE), new Position(7, 4));
 	}
 	
 }
