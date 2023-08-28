@@ -13,7 +13,7 @@ public class Board {
 		}
 		this.rows = rows;
 		this.columns = columns;
-		pieces = new Piece[rows][columns];
+		pieces = new Piece[rows][columns];     // instancia uma matriz de  Piece com o numero de linhas(row)  e colunas (column)
 	}
 
 
