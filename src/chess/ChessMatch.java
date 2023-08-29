@@ -34,6 +34,7 @@ public class ChessMatch {  // é a partida   chess match = jogo de xadres
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
 		validateSourcePosition (source);
+		validateSourceTargetPosition(source, target);
 		Piece capturedPiece = makeMove( source, target );
 		
 		return (ChessPiece) capturedPiece;
@@ -45,6 +46,7 @@ public class ChessMatch {  // é a partida   chess match = jogo de xadres
 		board.placePiece(p, target);
 		return capturedPiece;
 	}
+
 	private void validateSourcePosition(Position position) {
 		if ( !board.thereIsPiece(position) ) {
 			throw new ChessException("there is no piece on source position");
@@ -53,6 +55,13 @@ public class ChessMatch {  // é a partida   chess match = jogo de xadres
 			throw new ChessException("There is no possible moves for the chosen piece ");
 		}
 	}
+
+	private void validateSourceTargetPosition(Position source, Position target) {
+		if ( !board.piece(source).possibleMoves(target)) {
+			throw  new ChessException("the chosen piece can't move to target position");
+		}
+	}
+
 	private void placeNewPiece( char column, int row, ChessPiece piece ) {			// coloca a peça em um novo lugar
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
 	}

@@ -2,6 +2,7 @@ package chess;
 
 import boardgame.Board;
 import boardgame.Piece;
+import boardgame.Position;
 
 /* chess piece = peça de Xadrez
  * Peça do jogo de jadres
@@ -22,4 +23,9 @@ public abstract class ChessPiece extends Piece {
 	public Color getColor() {
 		return color;
 	}
+
+	protected boolean isThereOpponentPiece( Position position ) {
+		ChessPiece p = (ChessPiece)  getBoard().piece(position);
+		return p != null && p.getColor() != color;
+	}//3:30    6:15    9:50
 }
