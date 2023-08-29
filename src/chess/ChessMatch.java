@@ -49,6 +49,9 @@ public class ChessMatch {  // é a partida   chess match = jogo de xadres
 		if ( !board.thereIsPiece(position) ) {
 			throw new ChessException("there is no piece on source position");
 		}
+		if ( !board.piece(position).isThereAnyPossible()) {
+			throw new ChessException("There is no possible moves for the chosen piece ");
+		}
 	}
 	private void placeNewPiece( char column, int row, ChessPiece piece ) {			// coloca a peça em um novo lugar
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
