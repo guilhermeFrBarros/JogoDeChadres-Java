@@ -30,6 +30,14 @@ public class ChessMatch {  // é a partida   chess match = jogo de xadres
 		return mat;
 	}
 	
+
+	// retorna as posibilidades  para peça se mover, a peça selecionada de acordo com posiçao
+	public boolean[][] possibleMoves( ChessPosition sourcePosition)  {
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+
 	public ChessPiece performChessMove ( ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
 		Position target = targetPosition.toPosition();
@@ -51,13 +59,13 @@ public class ChessMatch {  // é a partida   chess match = jogo de xadres
 		if ( !board.thereIsPiece(position) ) {
 			throw new ChessException("there is no piece on source position");
 		}
-		if ( !board.piece(position).isThereAnyPossible()) {
+		if ( !board.piece(position).isThereAnyPossibleMove()) {
 			throw new ChessException("There is no possible moves for the chosen piece ");
 		}
 	}
 
 	private void validateSourceTargetPosition(Position source, Position target) {
-		if ( !board.piece(source).possibleMoves(target)) {
+		if ( !board.piece(source).possibleMove(target)) {
 			throw  new ChessException("the chosen piece can't move to target position");
 		}
 	}

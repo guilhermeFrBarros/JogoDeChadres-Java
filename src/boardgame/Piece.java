@@ -14,14 +14,15 @@ public abstract class  Piece {
 		return board;
 	}
 
+	// está sendo implementado nas classes ex: king, rook, pois cada peça tem suas possibilidades de movimentos, ou seja regras   
 	public abstract boolean[][] possibleMoves();
 
-	public boolean possibleMoves(Position position) {
-		return possibleMoves()[position.getRow()][position.getColumn()];
+	public boolean possibleMove(Position position) {
+		return possibleMoves()[position.getRow()][position.getColumn()];  // retorna uma possição da matriz de posibilidades
 	}
 
-	public boolean isThereAnyPossible() {
-		boolean[][] mat = possibleMoves();
+	public boolean isThereAnyPossibleMove() {   
+		boolean[][] mat = possibleMoves();    				// pega  a matriz de possibilidade
 		for (int i = 0; i < mat.length; i++) {
 			for (int j = 0; j < mat.length; j++) {
 				if ( mat[i][j] ) {
