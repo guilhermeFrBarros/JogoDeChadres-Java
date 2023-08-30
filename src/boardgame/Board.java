@@ -41,7 +41,7 @@ public class Board {
 	}
 	
 	
-	public void placePiece ( Piece piece, Position position ) {				// é um metodo que ser para colocar a peça no tabuleiro
+	public void placePiece ( Piece piece, Position position ) {				// é um metodo que serve para colocar a peça no tabuleiro
 		if( thereIsPiece(position) ) {
 			throw new BoardException("There is already a piece on position " + position);
 		}
